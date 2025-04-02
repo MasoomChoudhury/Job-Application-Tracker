@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTracker: Simple Job Application Organizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Job Application Tracker</h1>
+            <nav>
+                <button class="nav-btn active" data-target="job-list-section">Track Applications</button>
+                <button class="nav-btn" data-target="add-job-form-section">Add New Application</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="add-job-form-section" class="view-section hidden">
+                <h2>Add New Application</h2>
+                <form id="add-job-form">
+                <div class="form-group">
+                    <label for="company-name">Company Name:</label>
+                    <input type="text" id="company-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="position-title">Position Title:</label>
+                    <input type="text" id="position-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="date-applied">Date Applied:</label>
+                    <input type="date" id="date-applied">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status">
+                        <option value="Applied">Applied</option>
+                        <option value="Screening">Screening</option>
+                        <option value="Interview Scheduled">Interview Scheduled</option>
+                        <option value="Offer Received">Offer Received</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Withdrawn">Withdrawn</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="follow-up-date">Follow-up Date:</label>
+                    <input type="date" id="follow-up-date">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Application</button>
+                </form>
+            </section>
+
+            <section id="job-list-section" class="view-section">
+                <h2>Tracked Applications</h2>
+                <div id="job-list-controls">
+                    <button id="export-csv-btn" class="btn btn-secondary">Export to CSV</button>
+                </div>
+                <div id="job-list-container">
+                    <!-- Job applications will be dynamically inserted here -->
+                    <p id="no-jobs-message">No applications added yet.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
